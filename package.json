@@ -2,7 +2,7 @@
   "name": "tweety",
   "version": "1.2.0",
   "description": "LIVE Twitter feed that prints to console an filters out specific user defined tweets",
-  "main": "app.js",
+  "main": "/src/app.js",
   "scripts": {
     "tweety": "node -r esm app.js"
   },
