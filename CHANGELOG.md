@@ -1,8 +1,9 @@
-#Changelog
+# Changelog
+
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-##[1.2.0] - 2019-02-14
+## [1.2.0] - 2019-02-14
 
 ### Changed
 
@@ -26,7 +27,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - hook up to discord bot
 - load messages from json
 
-##[1.1.0] - 2019-02-13
+## [1.1.0] - 2019-02-13
 
 ### Changed
 
@@ -43,7 +44,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - change keyword search to hastag(#) only searching. Replies with more accurate results when LIVE
 - integrate local date / time to log
 
-##[1.0.0] - 2019-02-12
+## [1.0.0] - 2019-02-12
 
 ### Added
 

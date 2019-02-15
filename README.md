@@ -5,6 +5,9 @@ LIVE Twitter feed that prints to console an filters out specific user defined tw
 Coming soon...
 
 ## TODO
-  Implement simple and modern logging format an optimize using https://github.com/117/fir
- 
-  change keyword search to hashtag(#) only searching. Replies with more accurate results when LIVE
+- add an setup 117's parse package
+- add option to post tweets, search keywords etc..
+- add `link to tweet` option
+- create tweety command + subcommand with options
+- hook up to discord bot
+- load messages from json
