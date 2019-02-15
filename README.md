@@ -1,5 +1,5 @@
 # Tweety
-LIVE Twitter feed that prints to console an filters out specific user defined tweets
+LIVE console based Twitter feed that prints to console an filters out specific user defined tweets
 
 ## Usage 
 Coming soon...
