@@ -1,24 +1,40 @@
 import twitter from "twitter";
-import log from "log";
 import auth from "./auth.json";
-import pkg from "./package.json";
+import fir from "@unsc/fir";
+import parse from "@unsc/parse";
+import readline from "readline-sync";
 import chalk from "chalk";
 import moment from "moment";
-import sleep from "sleep";
+import fs from "fs";
 
-/**
- * 117's log package -- wonderfully simple an super useful
- */
+// asks for user specified search before searching
+let keyword = readline.question(
+  "Aye there, an thank you for using Tweety!\n\nWhat would you like Tweety to search for?\n\nI want Tweety to search for: "
+);
 
-log
-  .format(function(message) {
-    const date = moment().format("h:mm:ss"),
-      app = pkg.name;
-    return `${date} ${app} ${chalk.green("info")} ${message}`;
-  })
-  .bind("info");
+// checks to see if logs folder exists. If not then creates one, an sends msg to console
+try {
+  fs.mkdirSync("logs");
+  fir.log("logs folder created");
+} catch (err) {
+  if (err.code == "EEXIST") {
+    fir.log("logs folder already exists.. moving forward");
+  } else {
+    fir.log(err);
+  }
+}
 
-// apart of twitter login
+const date = moment().format("h:mm:ss");
+
+// gives access to fir
+fir;
+fir.save("logs/latest.log");
+fir.format(
+  message => `${chalk.green(`INFO`)}: ${chalk.cyan(`${date}`)} ${message}`
+);
+fir.log("Log has been prettied up with 117's fir package :)");
+
+// twitter application login
 let client = new twitter({
   consumer_key: auth.key,
   consumer_secret: auth.secret,
@@ -26,33 +42,60 @@ let client = new twitter({
   access_token_secret: auth.access_secret
 });
 
-// Checks twitter for any an all tweets / retweets contaiing the keyword used in "track" function
+// console.log("command is:", parse.command);
 
-client.stream("statuses/filter", { track: "Eminem" }, async function(stream) {
-  await sleep(4000);
-  stream.on("data", function(tweet) {
-    log.info(tweet.text);
-  });
+// parse.getCommand();
+// parse.getOptions();
 
-  stream.on("error", function(error) {
-    log.info(error);
-  });
+// parse.onCommand("tweety start", function(optinos) {
+//   // do silly stuff like
+//   console.log("");
+// });
+
+// parse.on("Tweety start", function() {
+//   // start command stuff here
+// });
+
+// parse.on("Tweety stop", function() {
+//   // stop command stuff
+// });
+
+// parse.on("Tweety", function() {
+//   // show help menu
+// });
+
+/**
+ * Checks twitter for any an all tweets / retweets containg the user specified keyword
+ */
+
+client.stream("statuses/filter", { track: "#" + keyword }, function(stream) {
+  try {
+    stream.on("data", function(tweet) {
+      fir.log(tweet.text);
+    });
+
+    stream.on("error", function(error) {
+      fir.log(error);
+    });
+  } catch (exception) {
+    console.log(exception);
+  }
 });
 
 /**
  * Post a tweet by changing status, an run npm start
  */
 
-client
-  .post("statuses/update", {
-    status:
-      "When your software works on only the 376th run https://gph.is/11hU9aU"
-  })
-  .then(function(tweet) {
-    log.info(tweet);
-  })
-  .catch(function(error) {
-    throw error;
-  });
+// client
+//   .post("statuses/update", {
+//     status:
+//       "When your software works on only the 376th run https://gph.is/11hU9aU"
+//   })
+//   .then(function(tweet) {
+//     fir.log(tweet);
+//   })
+//   .catch(function(error) {
+//     console.log(error);
+//   });
 
-log.info("Aye your shit actually worked for once");
+// fir.log("Aye your shit actually worked for once");

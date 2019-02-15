@@ -1,19 +1,22 @@
 {
   "name": "tweety",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "LIVE Twitter feed that prints to console an filters out specific user defined tweets",
   "main": "app.js",
   "scripts": {
-    "start": "node -r esm app.js"
+    "tweety": "node -r esm app.js"
   },
   "author": "Tarla Rosten",
   "license": "ISC",
   "dependencies": {
+    "@unsc/fir": "github:117/fir",
+    "@unsc/parse": "^1.4.7",
     "chalk": "^2.4.2",
     "esm": "^3.2.4",
-    "log": "github:117/log",
+    "fs": "0.0.1-security",
     "moment": "^2.24.0",
     "pkg": "^4.3.7",
+    "readline-sync": "^1.4.9",
     "sleep": "github:117/sleep",
     "twitter": "^1.7.1"
   }
