@@ -1,5 +1,5 @@
 import twitter from "twitter";
-import auth from "/src/auth.json";
+import auth from "./auth.json";
 import fir from "@unsc/fir";
 import parse from "@unsc/parse";
 import readline from "readline-sync";
