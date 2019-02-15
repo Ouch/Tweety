@@ -1,3 +1,4 @@
 auth.json
 node_modules
 lang.json
+logs/latest.log
