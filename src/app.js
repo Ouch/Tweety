@@ -7,6 +7,7 @@ import readline from "readline-sync";
 import chalk from "chalk";
 import moment from "moment";
 import fs from "fs";
+import day from "dayjs";
 
 // asks for user specified search before searching
 let keyword = readline.question(
@@ -14,25 +15,36 @@ let keyword = readline.question(
 );
 
 // checks to see if logs folder exists. If not then creates one, an sends msg to console
-try {
-  fs.mkdirSync("logs");
-  fir.log("logs folder created");
-} catch (err) {
-  if (err.code == "EEXIST") {
-    fir.log("logs folder already exists.. moving forward");
-  } else {
-    fir.log(err);
-  }
-}
+// try {
+//   fs.mkdirSync("logs");
+//   fir.log("logs folder created");
+// } catch (err) {
+//   if (err.code == "EEXIST") {
+//     fir.log("logs folder already exists.. moving forward");
+//   } else {
+//     fir.log(err);
+//   }
+// }
 
 const date = moment().format("h:mm:ss");
 
+fir.setOptions({
+  wipeOnRun: true,
+  appendToFile: "logs/latest.log",
+  formatter: function(message) {
+    return chalk
+      .red(day().format("hh:mm:ss"))
+      .concat(chalk.blue(`[INFO]`))
+      .concat(` ${message}`);
+  }
+});
+
 // gives access to fir
-fir;
-fir.save("logs/latest.log");
-fir.format(
-  message => `${chalk.green(`INFO`)}: ${chalk.cyan(`${date}`)} ${message}`
-);
+// fir;
+// fir.save("logs/latest.log");
+// fir.format(
+//   message => `${chalk.green(`INFO`)}: ${chalk.cyan(`${date}`)} ${message}`
+// );
 fir.log("Log has been prettied up with 117's fir package :)");
 
 // twitter application login
