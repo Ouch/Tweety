@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Changed
+
+- tweety application is now available to the public
+- `app.js` and `lang.json` moved to `src` folder. Be sure to move your `auth.json` to this folder too, or specify it's path in `package.json`
+
 ## [1.2.0] - 2019-02-14
 
 ### Changed

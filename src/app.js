@@ -2,6 +2,7 @@ import twitter from "twitter";
 import auth from "./auth.json";
 import fir from "@unsc/fir";
 import parse from "@unsc/parse";
+import json from "./lang.json";
 import readline from "readline-sync";
 import chalk from "chalk";
 import moment from "moment";
