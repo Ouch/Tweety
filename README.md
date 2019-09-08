@@ -1,5 +1,5 @@
 # Tweety
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FOuch%2FTweety.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FOuch%2FTweety?ref=badge_shield)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FOuch%2FTweety.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FOuch%2FTweety?ref=badge_shield) [![CodeFactor](https://www.codefactor.io/repository/github/ouch/tweety/badge)](https://www.codefactor.io/repository/github/ouch/tweety)
 
 LIVE Twitter feed that prints to console an filters out specific user defined tweets
 
